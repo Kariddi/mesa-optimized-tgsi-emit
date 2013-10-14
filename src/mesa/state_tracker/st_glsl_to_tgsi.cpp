@@ -437,6 +437,7 @@ public:
    void eliminate_dead_code(void);
    int eliminate_dead_code_advanced(void);
    void merge_registers(void);
+   void experimental_merge_registers(void);
    void renumber_registers(void);
 
    void emit_block_mov(ir_assignment *ir, const struct glsl_type *type,
@@ -3782,6 +3783,14 @@ glsl_to_tgsi_visitor::eliminate_dead_code_advanced(void)
    ralloc_free(writes);
    
    return removed;
+}
+
+void
+glsl_to_tgsi_visitor::experimental_merge_registers(void)
+{
+
+  printf("The next free temp is: %d\n", this->next_temp);
+
 }
 
 /* Merges temporary registers together where possible to reduce the number of 
